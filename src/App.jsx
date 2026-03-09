@@ -54,7 +54,7 @@ function App() {
           </div>
           <div className="btn-group">
             <a href="#projects" className="btn btn-primary">View Projects</a>
-            <a href="#" className="btn btn-outline">Download Resume</a>
+            <a href="/resume.pdf" download="Abhishek_Nahire_Resume.pdf" className="btn btn-outline">Download Resume</a>
             <a href="#contact" className="btn btn-outline">Contact</a>
           </div>
         </section>
