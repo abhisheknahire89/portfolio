@@ -44,9 +44,9 @@ function App() {
         {/* --- Hero Section --- */}
         <section id="hero" className="hero">
           <h1>Abhishek Nahire</h1>
-          <h2>Product Manager | Founder | Healthcare AI Builder</h2>
+          <h2>Product Manager | Founder's Office | Healthcare AI Builder</h2>
           <p>
-            Founder and Product Builder with 3+ years of experience building 0→1 products, leading user research, and executing go-to-market strategies.
+            Founder and Product Builder with 3+ years of experience building 0→1 products, leading strategy, and executing cross-functional initiatives. Interested in high-impact Product Management and Founder's Office roles.
           </p>
           <div className="location">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
@@ -232,12 +232,13 @@ function App() {
             </div>
 
             <div className="skill-category">
-              <h3>Growth & GTM</h3>
+              <h3>Strategy & Ops</h3>
               <div className="skill-list">
                 <span className="skill-tag">Go-to-Market Strategy</span>
-                <span className="skill-tag">Market Research</span>
-                <span className="skill-tag">Pricing Strategy</span>
-                <span className="skill-tag">Business Development</span>
+                <span className="skill-tag">Strategic Initiatives</span>
+                <span className="skill-tag">Business Operations</span>
+                <span className="skill-tag">Stakeholder Management</span>
+                <span className="skill-tag">Investor Relations</span>
               </div>
             </div>
 
