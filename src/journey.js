@@ -10,7 +10,7 @@ let currentBelief=-1;
 function layout(preserve=false){
  const previous=positions[active];
  const fraction=previous?clamp((scrollY-previous.top)/previous.height):0;
- chapters.forEach(el=>{el.style.setProperty('--length',el.dataset.length);el.style.setProperty('--chapter-color',el.dataset.color)});
+ chapters.forEach(el=>{el.style.setProperty('--length',el.dataset.length);el.style.setProperty('--chapter-color',el.dataset.color);el.style.setProperty('--chapter-ink',el.dataset.ink)});
  positions=chapters.map(el=>({top:el.offsetTop,height:el.offsetHeight}));
  galleryDistance=Math.max(0,track.scrollWidth-innerWidth+25);
  if(preserve&&previous&&!reduced.matches)window.scrollTo({top:positions[active].top+fraction*positions[active].height,behavior:'instant'});
@@ -48,12 +48,6 @@ addEventListener('scroll',()=>{if(!raf){requestAnimationFrame(update);raf=true}}
 addEventListener('resize',()=>layout(true));
 reduced.addEventListener('change',()=>{active=-1;currentBelief=-1;layout()});
 document.fonts.ready.then(()=>layout());layout();
-// Give the display lettering a small, hand-set rhythm without splitting its accessible name.
-document.querySelectorAll('.cutout-title').forEach(el=>{
- el.setAttribute('aria-label',[...el.childNodes].map(n=>n.nodeName==='BR'?' ':n.textContent).join('').trim().replace(/\s+/g,' '));
- function letters(parent){[...parent.childNodes].forEach(n=>{if(n.nodeType===3){const fragment=document.createDocumentFragment();for(const c of n.textContent){const s=document.createElement('span');s.className='cut-letter';s.textContent=c===' '?'\u00a0':c;s.setAttribute('aria-hidden','true');fragment.append(s)}n.replaceWith(fragment)}else if(n.nodeType===1&&n.tagName!=='BR')letters(n)})}
- letters(el);
-});
 // Accessible project overlays preserve the gallery's scroll position.
 const projectIndex=JSON.parse(document.querySelector('#project-index').textContent);
 const dialog=document.querySelector('.project-dialog');
@@ -78,15 +72,6 @@ document.querySelector('.next-project-button').addEventListener('click',()=>open
 addEventListener('popstate',syncRoute);
 syncRoute();
 if(location.hash.startsWith('#work/')){work.scrollIntoView({behavior:'instant'});layout()}
-// Opt-in ambient sound, generated locally. No audio plays before a user gesture.
-let audio=null,master=null,oscillators=[];
-const sound=document.querySelector('.sound-toggle');
-function stopSound(){oscillators.forEach(o=>{try{o.stop()}catch{}});oscillators=[];if(audio){audio.close();audio=null}sound.setAttribute('aria-pressed','false');sound.setAttribute('aria-label','Sound: turn ambient audio on');sound.querySelector('.sound-label').textContent='SOUND OFF'}
-sound.addEventListener('click',async()=>{
- if(audio){stopSound();return}
- try{const AC=window.AudioContext||window.webkitAudioContext;if(!AC)throw Error('unsupported');audio=new AC();master=audio.createGain();master.gain.value=.018;master.connect(audio.destination);[130.81,196,261.63].forEach((freq,i)=>{const osc=audio.createOscillator();const gain=audio.createGain();osc.type='sine';osc.frequency.value=freq;gain.gain.value=i===0?.55:.22;osc.connect(gain).connect(master);osc.start();oscillators.push(osc)});await audio.resume();sound.setAttribute('aria-pressed','true');sound.setAttribute('aria-label','Sound: turn ambient audio off');sound.querySelector('.sound-label').textContent='SOUND ON'}catch{stopSound();toast('Ambient audio isn’t available in this browser.')}
-});
-document.addEventListener('visibilitychange',()=>{if(audio){if(document.hidden)audio.suspend();else audio.resume()}});
 function toast(message){const el=document.querySelector('.journey-toast');el.textContent=message;el.classList.add('show');clearTimeout(window.journeyToast);window.journeyToast=setTimeout(()=>el.classList.remove('show'),3000)}
 document.querySelector('.journey-copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText('abhisheknahire89@gmail.com');toast('Email copied. Let’s start a conversation.')}catch{toast('abhisheknahire89@gmail.com')}});
 

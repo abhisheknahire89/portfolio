@@ -9,3 +9,4 @@
 
 .brand{min-width:48px;min-height:48px;display:flex;align-items:center}
 .embedded .header,.embedded .progress,.embedded .contact,.embedded footer,.embedded .next-project,.embedded .to-top,.embedded .case-hero>.text-link,.embedded .skip-link{display:none!important}.embedded .case-hero{padding-top:25px}.embedded .case-hero>.section-kicker{margin-top:20px}.embedded .case-hero h1{font-family:var(--serif)}
+.case-hero h1,.embedded .case-hero h1,.about-page h1{font-family:Manrope,Arial,sans-serif;font-weight:500}.header .brand{background:#192b30;color:#f1f0e9;font-size:31px;width:44px;min-width:44px;height:44px;min-height:44px;justify-content:center;letter-spacing:-4px;padding-right:4px}.header .brand-dot{color:#f1f0e9}
