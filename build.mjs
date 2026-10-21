@@ -1,6 +1,7 @@
 import {mkdir,writeFile,copyFile,readFile,cp} from 'node:fs/promises';
 import {projects} from './src/projects.mjs';
 import {renderJourney} from './src/journey.mjs';
+import {avatar} from './src/character.mjs';
 const origin='https://abhishek-nahire-portfolio.candydrum1024.chatgpt.site';
 const arrow='<span aria-hidden="true">↗</span>';
 const bio=`I’m Abhishek, a builder working at the intersection of product, strategy and operations. My background runs from mechanical engineering to techno-entrepreneurship at IIT Hyderabad, with a common thread: understanding how things work, and finding a better way forward.`;
@@ -20,6 +21,7 @@ function card(p){return `<article class="project-card reveal" data-category="${p
 const home=renderJourney(visual);
 await mkdir('dist/assets',{recursive:true});
 await cp('public','dist',{recursive:true});
+await writeFile('dist/assets/abhishek-character.svg',avatar('standalone',true));
 await writeFile('dist/index.html',shell('Abhishek Nahire — Product, Strategy & Operations','Turning good questions into meaningful outcomes. Explore Abhishek Nahire’s work in healthcare AI, product discovery and business operations.',home));
 for(const [i,p] of projects.entries()) {
  const next=projects[(i+1)%projects.length];
@@ -30,7 +32,7 @@ const about=`${header(false)}<main id="main"><section class="about-page section-
 await mkdir('dist/about',{recursive:true});await writeFile('dist/about/index.html',shell('About — Abhishek Nahire','A background in engineering, entrepreneurship and building useful systems. Get to know Abhishek Nahire.',about,'/about/'));
 await writeFile('dist/404.html',shell('Page not found — Abhishek Nahire','Find your way back to selected work.',`${header(false)}<main id="main" class="section-pad not-found"><span class="section-kicker">404 / A SMALL DETOUR</span><h1>Let’s get<br><em>back on track.</em></h1><a class="text-link" href="/">Explore the portfolio ↗</a></main>${footer()}`,'/404.html'));
 for(const file of ['styles.css','app.js','journey.css','journey.js']) await copyFile(`src/${file}`,`dist/assets/${file}`);
-await writeFile('dist/assets/favicon.svg',`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#273e31"/><text x="9" y="44" font-family="Georgia,serif" font-size="39" fill="#f6f5f0">an</text><circle cx="54" cy="44" r="3" fill="#d3e99a"/></svg>`);
+await writeFile('dist/assets/favicon.svg',`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#555b7b"/><path d="M15 24H49V43Q47 58 32 58Q17 58 15 43Z" fill="#c99167" stroke="#151b2b" stroke-width="2"/><path d="M14 26V20Q14 10 23 10L27 6L33 10L41 7L45 12Q51 14 50 26L42 23L34 25L26 22L19 26Z" fill="#1a1a2e"/><path d="M21 31H26M38 31H43" stroke="#1a1a2e" stroke-width="2.5" stroke-linecap="round"/><path d="M32 39Q24 35 21 44Q27 46 32 42Q38 46 44 44Q40 35 32 39" fill="#1a1a2e"/><path d="M28 49Q32 53 37 49" stroke="#f7e6cd" stroke-width="2" stroke-linecap="round"/></svg>`);
 await writeFile('dist/assets/social.svg',`<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630"><rect width="1200" height="630" fill="#f6f5f0"/><text x="70" y="90" font-family="sans-serif" font-size="20" fill="#273e31">ABHISHEK NAHIRE / PRODUCT, STRATEGY &amp; OPERATIONS</text><g font-family="Georgia,serif" font-size="100" fill="#222821"><text x="65" y="280">Good questions.</text><text x="65" y="400" font-style="italic">Meaningful outcomes.</text></g><text x="70" y="550" font-family="sans-serif" font-size="22" fill="#273e31">Curious by nature. A builder by choice.</text></svg>`);
 await writeFile('dist/robots.txt',`User-agent: *\nAllow: /\nSitemap: ${origin}/sitemap.xml\n`);
 await writeFile('dist/sitemap.xml',`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${['/','/about/',...projects.map(p=>`/work/${p.slug}/`)].map(p=>`<url><loc>${origin}${p}</loc></url>`).join('')}</urlset>`);
