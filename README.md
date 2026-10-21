@@ -2,7 +2,7 @@
 
 An editorial portfolio built around Abhishek’s own theme: connecting questions, evidence, decisions and useful outcomes.
 
-The visual identity uses ivory, ink and cobalt, clean sans-serif typography, precise grids and an original animated framework diagram. Eight scroll-controlled chapters cover background, method, evidence, context, selected work, about and contact. The six-project horizontal gallery and case-study overlays preserve the smooth narrative browsing experience.
+The visual identity uses warm ivory, ink and rust, clean sans-serif typography, precise grids and an original animated workflow diagram and a circular AN monogram. Eight scroll-controlled chapters cover background, method, evidence, context, selected work, about and contact. The six-project horizontal gallery and case-study overlays preserve the smooth narrative browsing experience.
 
 The former character, opening-head animation, stars, grain, irregular lettering, illustrated city scene and bottom chapter ruler have been removed. Sound has also been removed to keep the experience focused.
 
