@@ -8,3 +8,4 @@
 @media print{.header,.progress,.filters,.to-top,.toast,.contact,.hero-asterisk{display:none}.reveal{opacity:1;transform:none}body{font-size:11px}.section-pad{padding:30px 0}.project-card{break-inside:avoid}.project-art{height:250px}.hero{min-height:auto}.hero h1{font-size:55px}.project-grid{gap:30px}}
 
 .brand{min-width:48px;min-height:48px;display:flex;align-items:center}
+.embedded .header,.embedded .progress,.embedded .contact,.embedded footer,.embedded .next-project,.embedded .to-top,.embedded .case-hero>.text-link,.embedded .skip-link{display:none!important}.embedded .case-hero{padding-top:25px}.embedded .case-hero>.section-kicker{margin-top:20px}.embedded .case-hero h1{font-family:var(--serif)}

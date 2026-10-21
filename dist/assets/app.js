@@ -1,3 +1,4 @@
+if(new URLSearchParams(location.search).get('embed')==='1') document.documentElement.classList.add('embedded');
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const header = document.querySelector('.header');
 const progress = document.querySelector('.progress');

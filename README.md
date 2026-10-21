@@ -1,33 +1,41 @@
 # Abhishek Nahire — Portfolio
 
-A static, responsive portfolio with six evidence-grounded case studies, a dedicated about page, project filtering and accessible motion. Original CSS diagrams explain the work; they are not product screenshots.
+A cinematic, illustrated portfolio inspired by the pacing of Nesil Noble’s portfolio, with original artwork, content and implementation.
+
+Eight scroll-controlled chapters take visitors from the opening builder illustration through background, approach, three principles, Hyderabad, six selected projects, about and a closing contact scene. Vertical scrolling drives the horizontal work gallery. A full-screen case-study dialog keeps the gallery position, supports next/previous projects and closes with Escape. Case studies also remain available as standalone pages.
 
 ## Development
 
-Requires Node.js 18+ and Python 3 for the preview server. There are no npm dependencies.
+Requires Node.js 18+ and Python 3. No npm dependencies.
 
 ```sh
 npm run build
 npm run dev
 ```
 
-Open http://localhost:3000. `npm run check` checks JavaScript syntax.
+Open http://localhost:3000. Run `npm run check` for JavaScript syntax checks.
 
 ## Editing
 
-- `src/projects.mjs`: case study copy, categories and metrics.
-- `build.mjs`: page templates, metadata and generated routes.
-- `src/styles.css`: design tokens, layouts and responsive styles.
-- `src/app.js`: filters, reveal animations, navigation state and clipboard feedback.
+- `src/journey.mjs`: homepage scenes, original SVG illustration and gallery markup.
+- `src/journey.css`: cinematic layout, responsive rules and reduced-motion fallback.
+- `src/journey.js`: scene progress, gallery, project dialog, opt-in ambient audio and clipboard feedback.
+- `src/projects.mjs`: the six project narratives and reported metrics.
+- `build.mjs`: shared templates, individual case studies, about page, metadata and routes.
+- `src/styles.css` and `src/app.js`: standalone pages and project visuals.
 - `public/assets/`: résumé, locally served fonts, social image and font licenses.
-- `dist/`: generated static site; deploy this directory.
+- `dist/`: generated static website.
 
-Run `npm run build` after edits. URLs use trailing slashes and work with normal static directory serving. Configure a static host to serve `404.html` for missing paths. The hosting identity is in `.openai/hosting.json`.
+Run `npm run build` after editing. Deploy `dist/`. The Sites identity is in `.openai/hosting.json`.
+
+## Accessibility and behavior
+
+System reduced-motion preference switches the fixed scenes into a normal document with a project grid and all three principles visible. Inactive cinematic scenes are inert and hidden from assistive technology. The native dialog traps focus and restores focus to its project link. Keyboard focus brings gallery cards into view. Audio is generated locally with the Web Audio API and starts only after the sound button is clicked; it pauses in background tabs. Email links do not depend on clipboard access.
 
 ## Content
 
-Facts and reported outcomes come from the supplied résumé. The six stories include separate work streams at Aivana. Clinical metrics describe a pilot; preauthorization describes a prototype. Narrative framing and takeaways are editorial interpretations and should be reviewed by Abhishek before making the portfolio public. No stock product screenshots or fictional testimonials are used.
+Facts and reported outcomes come from the supplied résumé. The six stories include separate work streams at Aivana. Clinical metrics describe a pilot; preauthorization describes a prototype. Narrative framing and takeaways are editorial interpretations. The builder is an original fictional illustration, not a portrait. Project diagrams are original explanatory reconstructions, not product screenshots.
 
 ## Verification
 
-Checked all eight content pages at 375, 768 and 1440px for overflow, plus filter results and clipboard feedback. Motion respects `prefers-reduced-motion`. Decorative diagrams are hidden from assistive technology; adjacent text and case studies convey their substance. Email links work independently of clipboard access.
+Browser-reviewed at 375px mobile, 768px tablet and 1440px desktop. Verified chapter navigation, horizontal gallery movement, project opening and next-project navigation, Escape dismissal, preserved gallery scroll position, email-copy feedback and sound on/off. Browser error log was clear during review. Standalone pages remain available at their existing URLs. The previous design’s Lighthouse scores do not describe this redesign.
