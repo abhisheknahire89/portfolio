@@ -23,4 +23,3 @@
 html:not(.journey-ready) .belief-panel{position:relative;opacity:1;visibility:visible;top:auto;left:auto;transform:none;margin:40px auto}html:not(.journey-ready) .beliefs-scene{display:block}html:not(.journey-ready) .work-track{transform:none;max-width:100%;overflow-x:auto}html:not(.journey-ready) .system-map{opacity:1}
 .closing-avatar .idea-note{top:25%;left:82%}.closing-avatar .idea-compass{top:38%;left:78%}.closing-avatar .idea-chart{top:17%;left:74%}.closing-avatar .idea-leaf{top:8%;left:84%}
 @media(max-width:767px){.closing-avatar .idea-note{top:25%;left:70%}.closing-avatar .idea-compass{top:38%;left:76%}.closing-avatar .idea-chart{top:38%;left:68%}.closing-avatar .idea-leaf{top:15%;left:75%}}
-@media(max-width:767px){.replay{top:84px}}

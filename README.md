@@ -17,7 +17,6 @@ Open http://localhost:3000. Run `npm run check` for JavaScript syntax checks.
 
 ## Editing
 
-- `src/character.mjs`: editable portrait SVG; `dist/assets/abhishek-character.svg` is the standalone 800 × 1000 export.
 - `src/journey.mjs`: homepage scenes, original SVG illustration and gallery markup.
 - `src/journey.css`: cinematic layout, responsive rules and reduced-motion fallback.
 - `src/journey.js`: scene progress, gallery, project dialog, opt-in ambient audio and clipboard feedback.
@@ -35,7 +34,7 @@ System reduced-motion preference switches the fixed scenes into a normal documen
 
 ## Content
 
-Facts and reported outcomes come from the supplied résumé. The six stories include separate work streams at Aivana. Clinical metrics describe a pilot; preauthorization describes a prototype. Narrative framing and takeaways are editorial interpretations. The builder is an original stylised SVG portrait based on Abhishek’s supplied photo, including his dark mustache, upward-styled hair, warm brown skin and slate-blue collared shirt. Project diagrams are original explanatory reconstructions, not product screenshots.
+Facts and reported outcomes come from the supplied résumé. The six stories include separate work streams at Aivana. Clinical metrics describe a pilot; preauthorization describes a prototype. Narrative framing and takeaways are editorial interpretations. The builder is an original fictional illustration, not a portrait. Project diagrams are original explanatory reconstructions, not product screenshots.
 
 ## Verification
 
