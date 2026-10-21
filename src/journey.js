@@ -78,15 +78,47 @@ document.querySelector('.next-project-button').addEventListener('click',()=>open
 addEventListener('popstate',syncRoute);
 syncRoute();
 if(location.hash.startsWith('#work/')){work.scrollIntoView({behavior:'instant'});layout()}
-// Opt-in ambient sound, generated locally. No audio plays before a user gesture.
-let audio=null,master=null,oscillators=[];
+// Opt-in original ambient loop. State follows the media element, not just the click.
+const ambient=document.querySelector('#ambient-audio');
 const sound=document.querySelector('.sound-toggle');
-function stopSound(){oscillators.forEach(o=>{try{o.stop()}catch{}});oscillators=[];if(audio){audio.close();audio=null}sound.setAttribute('aria-pressed','false');sound.setAttribute('aria-label','Sound: turn ambient audio on');sound.querySelector('.sound-label').textContent='SOUND OFF'}
-sound.addEventListener('click',async()=>{
- if(audio){stopSound();return}
- try{const AC=window.AudioContext||window.webkitAudioContext;if(!AC)throw Error('unsupported');audio=new AC();master=audio.createGain();master.gain.value=.018;master.connect(audio.destination);[130.81,196,261.63].forEach((freq,i)=>{const osc=audio.createOscillator();const gain=audio.createGain();osc.type='sine';osc.frequency.value=freq;gain.gain.value=i===0?.55:.22;osc.connect(gain).connect(master);osc.start();oscillators.push(osc)});await audio.resume();sound.setAttribute('aria-pressed','true');sound.setAttribute('aria-label','Sound: turn ambient audio off');sound.querySelector('.sound-label').textContent='SOUND ON'}catch{stopSound();toast('Ambient audio isn’t available in this browser.')}
+let soundRequested=false,resumeAfterHidden=false,playbackAttempt=0;
+ambient.volume=.55;
+function paintSound(playing){
+ sound.setAttribute('aria-pressed',String(playing));
+ sound.setAttribute('aria-label',playing?'Sound On: mute ambient audio':'Sound Off: play ambient audio');
+ sound.title=playing?'Mute background sound':'Play background sound';
+ sound.querySelector('.sound-label').textContent=playing?'SOUND ON':'SOUND OFF';
+}
+function stopSound(){
+ playbackAttempt++;soundRequested=false;resumeAfterHidden=false;
+ ambient.pause();ambient.currentTime=0;paintSound(false);
+}
+function playbackFailed(){
+ if(!soundRequested)return;
+ stopSound();toast('Sound couldn’t start. Tap Sound Off to try again.');
+}
+ambient.addEventListener('playing',()=>{
+ if(!soundRequested||document.hidden){ambient.pause();return}
+ paintSound(true);
 });
-document.addEventListener('visibilitychange',()=>{if(audio){if(document.hidden)audio.suspend();else audio.resume()}});
+ambient.addEventListener('pause',()=>paintSound(false));
+ambient.addEventListener('error',playbackFailed);
+sound.addEventListener('click',async()=>{
+ if(soundRequested){stopSound();toast('Sound off.');return}
+ soundRequested=true;
+ const attempt=++playbackAttempt;
+ sound.querySelector('.sound-label').textContent='STARTING…';
+ try{
+  if(ambient.error)ambient.load();
+  await ambient.play();
+  if(attempt===playbackAttempt&&soundRequested&&!ambient.paused){paintSound(true);toast('Ambient sound on. Tap Sound On to mute.');}
+ }catch{if(attempt===playbackAttempt)playbackFailed()}
+});
+document.addEventListener('visibilitychange',()=>{
+ if(document.hidden){resumeAfterHidden=soundRequested;ambient.pause();}
+ else if(resumeAfterHidden&&soundRequested){resumeAfterHidden=false;const attempt=++playbackAttempt;ambient.play().catch(()=>{if(attempt===playbackAttempt)playbackFailed()});}
+});
+window.addEventListener('pagehide',stopSound);
 function toast(message){const el=document.querySelector('.journey-toast');el.textContent=message;el.classList.add('show');clearTimeout(window.journeyToast);window.journeyToast=setTimeout(()=>el.classList.remove('show'),3000)}
 document.querySelector('.journey-copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText('abhisheknahire89@gmail.com');toast('Email copied. Let’s start a conversation.')}catch{toast('abhisheknahire89@gmail.com')}});
 

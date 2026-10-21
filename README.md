@@ -31,7 +31,7 @@ Run `npm run build` after editing. Deploy `dist/`. The Sites identity is in `.op
 
 ## Accessibility and behavior
 
-System reduced-motion preference switches the fixed scenes into a normal document with a project grid and all three principles visible. Inactive cinematic scenes are inert and hidden from assistive technology. The native dialog traps focus and restores focus to its project link. Keyboard focus brings gallery cards into view. Audio is generated locally with the Web Audio API and starts only after the sound button is clicked; it pauses in background tabs. Email links do not depend on clipboard access.
+System reduced-motion preference switches the fixed scenes into a normal document with a project grid and all three principles visible. Inactive cinematic scenes are inert and hidden from assistive technology. The native dialog traps focus and restores focus to its project link. Keyboard focus brings gallery cards into view. An original 16-second ambient loop starts only after the sound button is clicked and pauses in background tabs. The control reflects the media element’s playback state and reports playback failures. Audio is loaded only on request. Regenerate the WAV with `python3 scripts/generate-ambient.py`. Email links do not depend on clipboard access.
 
 ## Content
 
