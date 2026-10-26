@@ -40,3 +40,7 @@ Facts and reported outcomes come from the supplied résumé. The six stories inc
 ## Verification
 
 Browser-reviewed at 375px mobile, 768px tablet and 1440px desktop. Verified chapter navigation, horizontal gallery movement, project opening and next-project navigation, Escape dismissal, preserved gallery scroll position, email-copy feedback and sound on/off. Browser error log was clear during review. Standalone pages remain available at their existing URLs. The previous design’s Lighthouse scores do not describe this redesign.
+
+## Vercel hosting
+
+Import `abhisheknahire89/portfolio` from GitHub. The checked-in `vercel.json` selects the static build (`npm run build`) and publishes `dist/`. No environment variables or paid services are required.
