@@ -3,7 +3,7 @@ import {projects} from './src/projects.mjs';
 import {renderJourney} from './src/journey.mjs';
 import {avatar} from './src/character.mjs';
 import {bio,profileContent} from './src/profile.mjs';
-const origin='https://abhishek-nahire-portfolio.candydrum1024.chatgpt.site';
+const origin='https://abhishek-nahire-portfolio.abhi89iith.chatgpt.site';
 const arrow='<span aria-hidden="true">↗</span>';
 const visual = p => {
 if(p.visual==='clinical') return `<div class="mock-window"><div class="window-bar"><b class="mini-brand">aivana<span> / clinical workspace</span></b><span class="window-dots">•••</span></div><div class="clinical-layout"><div class="mock-sidebar"><span class="sidebar-symbol">✳</span><i>▦</i><i>▤</i><i>◷</i></div><div class="clinical-content"><div class="mock-breadcrumb">WORKSPACE / CONSULTATION</div><div class="mock-title">Care comes first.</div><div class="mock-sub">Let the documentation follow.</div><div class="note-grid"><div class="note-paper"><span class="tiny-label">CONSULTATION NOTE</span><div class="skeleton wide"></div><div class="skeleton"></div><div class="skeleton short"></div><span class="tiny-label note-label">ASSESSMENT & PLAN</span><div class="skeleton"></div><div class="skeleton wide"></div><div class="skeleton short"></div></div><div class="accuracy"><span class="tiny-label">FINAL 3-DAY NOTE ACCURACY</span><div class="accuracy-ring"><b>91<span>%</span></b></div><span class="status-pill">✓ Final 3 days</span></div></div><div class="mock-bottom"><span class="live-dot"></span> More time for the conversation.<span>↗</span></div></div></div></div><div class="floating-note"><span>↗</span><div><b>~20% less documentation time</b><small>Tulip Hospital · Final 3 days</small></div></div>`;
