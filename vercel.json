@@ -3,11 +3,5 @@
   "framework": null,
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "trailingSlash": true,
-  "headers": [
-    {
-      "source": "/assets/abhishek-nahire-resume.pdf",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }]
-    }
-  ]
+  "trailingSlash": true
 }

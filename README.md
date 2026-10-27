@@ -2,7 +2,7 @@
 
 A cinematic, illustrated portfolio inspired by the pacing of Nesil Noble’s portfolio, with original artwork, content and implementation.
 
-Ten scroll-controlled chapters take visitors from the opening builder illustration through background, approach, three principles, Hyderabad, six selected projects, about and a closing contact scene. Vertical scrolling drives the horizontal work gallery. A full-screen case-study dialog keeps the gallery position, supports next/previous projects and closes with Escape. Case studies also remain available as standalone pages.
+Eight scroll-controlled chapters take visitors from the opening builder illustration through background, approach, three principles, Hyderabad, six selected projects, about and a closing contact scene. Vertical scrolling drives the horizontal work gallery. A full-screen case-study dialog keeps the gallery position, supports next/previous projects and closes with Escape. Case studies also remain available as standalone pages.
 
 ## Development
 
@@ -35,7 +35,7 @@ System reduced-motion preference switches the fixed scenes into a normal documen
 
 ## Content
 
-Facts and reported outcomes come from the supplied résumé and the owner’s October 2026 corrections. Aivana is shown as Aug 2024 to 2026, with a formal winding-down status. Research separates 100+ conversations from 370+ Kaya student validations; Tulip Hospital outcomes are identified as final-three-day measurements. The opening, company decisions and founding-team sections describe the next step. The six stories include separate work streams at Aivana. Clinical metrics describe the final three days of the 11-week pilot; preauthorization describes a prototype. Narrative framing and takeaways are editorial interpretations. The builder is an original stylised SVG portrait based on Abhishek’s supplied photo, including his dark mustache, upward-styled hair, warm brown skin and slate-blue collared shirt. Project diagrams are original explanatory reconstructions, not product screenshots.
+Facts and reported outcomes come from the supplied résumé. The six stories include separate work streams at Aivana. Clinical metrics describe a pilot; preauthorization describes a prototype. Narrative framing and takeaways are editorial interpretations. The builder is an original stylised SVG portrait based on Abhishek’s supplied photo, including his dark mustache, upward-styled hair, warm brown skin and slate-blue collared shirt. Project diagrams are original explanatory reconstructions, not product screenshots.
 
 ## Verification
 
