@@ -93,3 +93,7 @@ html:not(.journey-ready) .belief-panel{position:relative;opacity:1;visibility:vi
 @media(max-width:767px){.replay{top:84px}}
 
 @media(prefers-reduced-motion:reduce){.sound-toggle{display:flex}}
+
+/* Keep the existing illustration visible and the longer opening copy clear of the title. */
+@media(min-width:768px){.intro-description{top:48%}.intro-scene .scroll-invite{left:auto;right:7%;bottom:11%}}
+@media(max-width:767px){.intro-chapter .avatar-stage{display:block;position:relative;left:50%;bottom:auto;transform:translateX(-50%);width:min(80vw,340px);max-width:none;margin-top:24px}.intro-description{margin-top:24px}}
